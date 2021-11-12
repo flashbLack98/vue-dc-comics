@@ -2,38 +2,11 @@
   <footer>
     <div class="background_blue">
       <div class="container_item">
-        <div class="item">
+        <div v-for="(item, i) in linkBlue" :key="i" class="item">
           <div>
-            <img
-              src="../assets/buy-comics-digital-comics.png"
-              alt="Tablet DC"
-            />
+            <img :src="item.img" :alt="item.title" />
           </div>
-          <h5>DIGITAL COMICS</h5>
-        </div>
-        <div class="item">
-          <div>
-            <img src="../assets/buy-comics-merchandise.png" alt="Tablet DC" />
-          </div>
-          <h5>DC MERCHANDISE</h5>
-        </div>
-        <div class="item">
-          <div>
-            <img src="../assets/buy-comics-subscriptions.png" alt="Tablet DC" />
-          </div>
-          <h5>SUBSCRIPTION</h5>
-        </div>
-        <div class="item">
-          <div>
-            <img src="../assets/buy-comics-shop-locator.png" alt="Tablet DC" />
-          </div>
-          <h5>COMIC SHOP LOCATOR</h5>
-        </div>
-        <div class="item">
-          <div>
-            <img src="../assets/buy-dc-power-visa.svg" alt="Tablet DC" />
-          </div>
-          <h5>DC POWER VISA</h5>
+          <h5>{{ item.title }}</h5>
         </div>
       </div>
     </div>
@@ -105,7 +78,35 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Footer",
+  data() {
+    return {
+      linkBlue: [
+        {
+          img: require("../assets/buy-comics-digital-comics.png"),
+          title: "DIGITAL COMICS",
+        },
+        {
+          img: require("../assets/buy-comics-merchandise.png"),
+          title: "DC MERCHANDISE",
+        },
+        {
+          img: require("../assets/buy-comics-subscriptions.png"),
+          title: "SUBSCRIPTION",
+        },
+        {
+          img: require("../assets/buy-comics-shop-locator.png"),
+          title: "COMIC SHOP LOCATOR",
+        },
+        {
+          img: require("../assets/buy-dc-power-visa.svg"),
+          title: "DC POWER VISA",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>

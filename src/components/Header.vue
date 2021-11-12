@@ -1,25 +1,64 @@
 <template>
-  <div>
+  <header>
     <div class="container_header">
       <img src="../assets/dc-logo.png" alt="logo DC" />
       <ul>
-        <li>CHARACTERS</li>
-        <li>COMICS</li>
-        <li>MOVIES</li>
-        <li>TV</li>
-        <li>GAMES</li>
-        <li>COLLECTIBLES</li>
-        <li>VIDEOS</li>
-        <li>FANS</li>
-        <li>NEWS</li>
-        <li>SHOP</li>
+        <li v-for="(item, i) in navbarItems" :key="i">{{ item.title }}</li>
       </ul>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Header",
+  data() {
+    return {
+      navbarItems: [
+        {
+          title: "CHARCTERS",
+          href: "#",
+        },
+        {
+          title: "COMICS",
+          href: "#",
+        },
+        {
+          title: "MOVIES",
+          href: "#",
+        },
+        {
+          title: "TV",
+          href: "#",
+        },
+        {
+          title: "GAMES",
+          href: "#",
+        },
+        {
+          title: "COLLECTIBLES",
+          href: "#",
+        },
+        {
+          title: "VIDEO",
+          href: "#",
+        },
+        {
+          title: "FANS",
+          href: "#",
+        },
+        {
+          title: "NEWS",
+          href: "#",
+        },
+        {
+          title: "SHOP",
+          href: "#",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -30,15 +69,18 @@ div {
     margin: auto;
     align-items: center;
     justify-content: space-between;
+    padding-top: 10px;
     img {
       padding-bottom: 10px;
     }
     ul {
       list-style: none;
+      margin: 0;
+      padding: 0;
       li {
         display: inline-block;
         font-size: 10px;
-        padding: 0 10px;
+        padding: 0 5px;
         font-weight: bold;
       }
     }
